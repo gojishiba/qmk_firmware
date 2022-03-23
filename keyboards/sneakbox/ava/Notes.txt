@@ -1,0 +1,2 @@
+This compile increases the detent to 4 pulses per turn
+also reintroduces scroll lock for third light. 

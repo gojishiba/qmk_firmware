@@ -32,9 +32,9 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
 /* encoder */
 /* #define NUMBER_OF_ENCODERS 1 */
-#define ENCODERS_PAD_A { D3 }
-#define ENCODERS_PAD_B { D2 }
-#define ENCODER_RESOLUTION 1
+#define ENCODERS_PAD_A { D2 }
+#define ENCODERS_PAD_B { D3 }
+#define ENCODER_RESOLUTION 4
 
 /* key matrix size */
 #define MATRIX_ROWS 9
@@ -54,6 +54,8 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
 #define LED_NUM_LOCK_PIN  D4
 #define LED_CAPS_LOCK_PIN D6
+#define LED_SCROLL_LOCK_PIN D7
+
 
 #define RGB_DI_PIN F7
 #define RGBLIGHT_EFFECT_BREATHING
