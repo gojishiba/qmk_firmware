@@ -45,20 +45,21 @@ KC_Z,    KC_X,    KC_C,    KC_V,    KC_B,        KC_N,    KC_M,    KC_COMM, KC_D
 ),
 
 
-[_RAISE] = LAYOUT_split_3x5_2(
-XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX,     KC_HOME, KC_PGDN, KC_PGUP, KC_END,  KC_PSCR, 
-KC_LGUI, KC_LALT, KC_LCTL, KC_LSFT, XXXXXXX,     XXXXXXX, KC_LEFT, KC_UP,   KC_RGHT, KC_INS, 
-XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX,     XXXXXXX, XXXXXXX, KC_DOWN, XXXXXXX, XXXXXXX, 
-                           _______, KC_DEL,      _______, _______
-),
-
-
 [_LOWER] = LAYOUT_split_3x5_2(
 KC_F1,   KC_F2,   KC_F3,   KC_F4,   XXXXXXX,     KC_PPLS, KC_P7,   KC_P8,   KC_P9,  KC_PAST, 
-KC_F5,   KC_F6,   KC_F7,   KC_F8,   XXXXXXX,     KC_PDOT, KC_P4,   KC_P5,   KC_P6,  KC_P0, 
-KC_F9,   KC_F10,  KC_F11,  KC_F12,  XXXXXXX,     KC_PMNS, KC_P1,   KC_P2,   KC_P3,  KC_PSLS, 
-                           _______, _______,     KC_PENT, _______
+KC_F5,   KC_F6,   KC_F7,   KC_F8,   XXXXXXX,     KC_PMNS, KC_P4,   KC_P5,   KC_P6,  KC_P0, 
+KC_F9,   KC_F10,  KC_F11,  KC_F12,  XXXXXXX,     KC_PDOT, KC_P1,   KC_P2,   KC_P3,  KC_PSLS, 
+                           _______, KC_PENT,     KC_DEL, _______
 ),
+
+
+[_RAISE] = LAYOUT_split_3x5_2(
+KC_ESC, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX,     XXXXXXX, KC_PGUP, XXXXXXX, KC_HOME,  KC_PSCR, 
+KC_LGUI, KC_LALT, KC_LCTL, KC_LSFT, XXXXXXX,     XXXXXXX, KC_PGDN, KC_UP,   KC_END, KC_INS, 
+XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX,     XXXXXXX, KC_LEFT, KC_DOWN, KC_RGHT, XXXXXXX, 
+                           ADJUST, _______,      KC_DEL, _______
+),
+
 
 [_ADJUST] = LAYOUT_split_3x5_2(
 _______, _______, _______, _______, _______,     _______, _______, _______, _______, _______, 
@@ -93,13 +94,12 @@ COMBO_RCBR,
 COMBO_LT,
 COMBO_GT,
 COMBO_TAB,
-COMBO_NUBS,
+COMBO_BLSL,
 COMBO_CAPS,
 COMBO_ENT,
 COMBO_MINS,
 COMBO_EQL,
 COMBO_QUOT,
-COMBO_NUHS,
 COMBO_ESC,
 COMBO_GRV,
 };
@@ -123,13 +123,12 @@ const uint16_t PROGMEM combo_rbrc[] = {KC_H, HM_J, COMBO_END};
 const uint16_t PROGMEM combo_lt[] = {HM_S, HM_D, COMBO_END};
 const uint16_t PROGMEM combo_gt[] = {HM_K, HM_L, COMBO_END};
 const uint16_t PROGMEM combo_tab[] = {KC_Q, KC_W, COMBO_END};
-const uint16_t PROGMEM combo_nubs[] = {HM_A, KC_Z, COMBO_END};
+const uint16_t PROGMEM combo_bsls[] = {HM_A, KC_Z, COMBO_END};
 const uint16_t PROGMEM combo_caps[] = {KC_Z, KC_X, KC_C, KC_V, COMBO_END};
 const uint16_t PROGMEM combo_ent[] = {HM_A, HM_F, COMBO_END};
 const uint16_t PROGMEM combo_mins[] = {KC_M, KC_COMM, COMBO_END};
 const uint16_t PROGMEM combo_eql[] = {KC_COMM, KC_DOT, COMBO_END};
 const uint16_t PROGMEM combo_quot[] = {HM_SCLN, KC_SLSH, COMBO_END};
-const uint16_t PROGMEM combo_nuhs[] = {HM_L, KC_DOT, COMBO_END};
 const uint16_t PROGMEM combo_esc[] = {HM_S, HM_F, COMBO_END};
 const uint16_t PROGMEM combo_grv[] = {HM_S, KC_X, COMBO_END};
 
@@ -153,13 +152,12 @@ combo_t key_combos[COMBO_COUNT] = {
     [COMBO_LT] = COMBO(combo_lt, KC_LT),
     [COMBO_GT] = COMBO(combo_gt, KC_GT),
     [COMBO_TAB] = COMBO(combo_tab, KC_TAB),
-    [COMBO_NUBS] = COMBO(combo_nubs, KC_NUBS),
+    [COMBO_BSLS] = COMBO(combo_bsls, KC_BSLS),
     [COMBO_CAPS] = COMBO(combo_caps, KC_CAPS),
     [COMBO_ENT] = COMBO(combo_ent, KC_ENT),
     [COMBO_MINS] = COMBO(combo_mins, KC_MINS),
     [COMBO_EQL] = COMBO(combo_eql, KC_EQL),
     [COMBO_QUOT] = COMBO(combo_quot, KC_QUOT),
-    [COMBO_NUHS] = COMBO(combo_nuhs, KC_NUHS),
     [COMBO_ESC] = COMBO(combo_esc, KC_ESC),
     [COMBO_GRV] = COMBO(combo_grv, KC_GRV),
 };

@@ -20,8 +20,10 @@
 #pragma once
 
 // Defaults for usable home row mods
-#define TAPPING_TERM 230
+#define COMBO_TERM 50
+#define TAPPING_TERM 200 //230
 #define IGNORE_MOD_TAP_INTERRUPT
+#define PERMISSIVE_HOLD
 
 // Improved mouse key defaults
 // Delay between pressing a key and cursor movement
