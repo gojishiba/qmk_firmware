@@ -19,3 +19,7 @@ UNICODE_ENABLE = yes        # Unicode
 AUDIO_ENABLE = no           # Audio output
 SPLIT_KEYBOARD = yes        # Use shared split_common code
 LAYOUTS = split_3x5_2
+
+#gojishiba 2022-04-14
+VPATH  +=  keyboards/gboards/
+COMBO_ENABLE=yes

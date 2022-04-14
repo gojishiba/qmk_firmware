@@ -19,11 +19,13 @@
 
 #pragma once
 
+//gojishiba 2022-04-14
 // Defaults for usable home row mods
 #define COMBO_TERM 50
 #define TAPPING_TERM 200 //230
 #define IGNORE_MOD_TAP_INTERRUPT
 #define PERMISSIVE_HOLD
+#define COMBO_VARIABLE_LEN
 
 // Improved mouse key defaults
 // Delay between pressing a key and cursor movement

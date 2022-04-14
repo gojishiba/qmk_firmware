@@ -13,17 +13,9 @@
  * You should have received a copy of the GNU General Public License
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
+//gojishiba 2022-04-14
 #include QMK_KEYBOARD_H
-
-enum layers {
-    _QWERTY,
-    _LOWER,
-    _RAISE,
-    _ADJUST
-};
-
-#define LOWER MO(_LOWER)
-#define RAISE MO(_RAISE)
+#include "g/keymap_combo.h"
 
 #define HM_A LGUI_T(KC_A)
 #define HM_S LALT_T(KC_S)
@@ -34,6 +26,17 @@ enum layers {
 #define HM_L LALT_T(KC_L)
 #define HM_K RCTL_T(KC_K)
 #define HM_J RSFT_T(KC_J)
+
+enum layers {
+    _QWERTY,
+    _LOWER,
+    _RAISE,
+    _ADJUST
+};
+
+#define LOWER MO(_LOWER)
+#define RAISE MO(_RAISE)
+#define ADJUST MO(_ADJUST)
 
 const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
       
@@ -73,92 +76,3 @@ layer_state_t layer_state_set_user(layer_state_t state) {
   return update_tri_layer_state(state, _LOWER, _RAISE, _ADJUST);
 }
 
-#ifdef COMBO_ENABLE
-enum combos {
-COMBO_1,
-COMBO_2,
-COMBO_3,
-COMBO_4,
-COMBO_5,
-COMBO_6,
-COMBO_7,
-COMBO_8,
-COMBO_9,
-COMBO_0,
-COMBO_LPRN,
-COMBO_RPRN,
-COMBO_LBRC,
-COMBO_RBRC,
-COMBO_LCBR,
-COMBO_RCBR,
-COMBO_LT,
-COMBO_GT,
-COMBO_TAB,
-COMBO_BLSL,
-COMBO_CAPS,
-COMBO_ENT,
-COMBO_MINS,
-COMBO_EQL,
-COMBO_QUOT,
-COMBO_ESC,
-COMBO_GRV,
-};
-
-const uint16_t PROGMEM combo_1[] = {KC_Q, HM_A, COMBO_END};
-const uint16_t PROGMEM combo_2[] = {KC_W, HM_S, COMBO_END};
-const uint16_t PROGMEM combo_3[] = {KC_E, HM_D, COMBO_END};
-const uint16_t PROGMEM combo_4[] = {KC_R, HM_F, COMBO_END};
-const uint16_t PROGMEM combo_5[] = {KC_T, KC_G, COMBO_END};
-const uint16_t PROGMEM combo_6[] = {KC_Y, KC_H, COMBO_END};
-const uint16_t PROGMEM combo_7[] = {KC_U, HM_J, COMBO_END};
-const uint16_t PROGMEM combo_8[] = {KC_I, HM_K, COMBO_END};
-const uint16_t PROGMEM combo_9[] = {KC_O, HM_L, COMBO_END};
-const uint16_t PROGMEM combo_0[] = {KC_P, HM_SCLN, COMBO_END};
-const uint16_t PROGMEM combo_lprn[] = {HM_D, HM_F, COMBO_END};
-const uint16_t PROGMEM combo_rprn[] = {HM_J, HM_K, COMBO_END};
-const uint16_t PROGMEM combo_lcbr[] = {HM_A, HM_S, COMBO_END};
-const uint16_t PROGMEM combo_rcbr[] = {HM_L, HM_SCLN, COMBO_END};
-const uint16_t PROGMEM combo_lbrc[] = {HM_F, KC_G, COMBO_END};
-const uint16_t PROGMEM combo_rbrc[] = {KC_H, HM_J, COMBO_END};
-const uint16_t PROGMEM combo_lt[] = {HM_S, HM_D, COMBO_END};
-const uint16_t PROGMEM combo_gt[] = {HM_K, HM_L, COMBO_END};
-const uint16_t PROGMEM combo_tab[] = {KC_Q, KC_W, COMBO_END};
-const uint16_t PROGMEM combo_bsls[] = {HM_A, KC_Z, COMBO_END};
-const uint16_t PROGMEM combo_caps[] = {KC_Z, KC_X, KC_C, KC_V, COMBO_END};
-const uint16_t PROGMEM combo_ent[] = {HM_A, HM_F, COMBO_END};
-const uint16_t PROGMEM combo_mins[] = {KC_M, KC_COMM, COMBO_END};
-const uint16_t PROGMEM combo_eql[] = {KC_COMM, KC_DOT, COMBO_END};
-const uint16_t PROGMEM combo_quot[] = {HM_SCLN, KC_SLSH, COMBO_END};
-const uint16_t PROGMEM combo_esc[] = {HM_S, HM_F, COMBO_END};
-const uint16_t PROGMEM combo_grv[] = {HM_S, KC_X, COMBO_END};
-
-combo_t key_combos[COMBO_COUNT] = {
-    [COMBO_1] = COMBO(combo_1, KC_1),
-    [COMBO_2] = COMBO(combo_2, KC_2),
-    [COMBO_3] = COMBO(combo_3, KC_3),
-    [COMBO_4] = COMBO(combo_4, KC_4),
-    [COMBO_5] = COMBO(combo_5, KC_5),
-    [COMBO_6] = COMBO(combo_6, KC_6),
-    [COMBO_7] = COMBO(combo_7, KC_7),
-    [COMBO_8] = COMBO(combo_8, KC_8),
-    [COMBO_9] = COMBO(combo_9, KC_9),
-    [COMBO_0] = COMBO(combo_0, KC_0),
-    [COMBO_LPRN] = COMBO(combo_lprn, KC_LPRN),
-    [COMBO_RPRN] = COMBO(combo_rprn, KC_RPRN),
-    [COMBO_LBRC] = COMBO(combo_lbrc, KC_LBRC),
-    [COMBO_RBRC] = COMBO(combo_rbrc, KC_RBRC),
-    [COMBO_LCBR] = COMBO(combo_lcbr, KC_LCBR),
-    [COMBO_RCBR] = COMBO(combo_rcbr, KC_RCBR),
-    [COMBO_LT] = COMBO(combo_lt, KC_LT),
-    [COMBO_GT] = COMBO(combo_gt, KC_GT),
-    [COMBO_TAB] = COMBO(combo_tab, KC_TAB),
-    [COMBO_BSLS] = COMBO(combo_bsls, KC_BSLS),
-    [COMBO_CAPS] = COMBO(combo_caps, KC_CAPS),
-    [COMBO_ENT] = COMBO(combo_ent, KC_ENT),
-    [COMBO_MINS] = COMBO(combo_mins, KC_MINS),
-    [COMBO_EQL] = COMBO(combo_eql, KC_EQL),
-    [COMBO_QUOT] = COMBO(combo_quot, KC_QUOT),
-    [COMBO_ESC] = COMBO(combo_esc, KC_ESC),
-    [COMBO_GRV] = COMBO(combo_grv, KC_GRV),
-};
-#endif
